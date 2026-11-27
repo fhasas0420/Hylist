@@ -26,7 +26,7 @@ export default defineNuxtConfig({
       siteUrl: process.env.SITE_URL,
     },
   },
-  css: ["./app/assets/css/main.css", "./app/assets/css/toastify.css"],
+  css: ["~/assets/css/main.css", "~/assets/css/toastify.css"],
   nitro: {
     storage: {
       data: {
