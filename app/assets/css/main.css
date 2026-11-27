@@ -1,0 +1,110 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, monospace;
+
+  --color-bg: #0e1621;
+  --color-nav: #0b121b;
+  --color-surface: #131d2a;
+  --color-raised: #1a2636;
+  --color-field: #0e1621;
+  --color-line: #1c2735;
+  --color-line-strong: #23324a;
+  --color-ink: #dfe6ee;
+  --color-muted: #8696a8;
+  --color-dim: #5d6b7c;
+  --color-accent: #3fb8af;
+  --color-accent-hover: #52c7be;
+  --color-accent-ink: #08201e;
+  --color-online: #4fd1a5;
+  --color-vip: #e0b45c;
+  --color-danger: #e5675f;
+}
+
+:root {
+  color-scheme: dark;
+}
+
+body {
+  @apply bg-bg font-sans text-ink antialiased;
+}
+
+select option {
+  background: #131d2a;
+  color: #dfe6ee;
+}
+
+::selection {
+  @apply bg-accent/30;
+}
+
+@layer components {
+  .panel {
+    @apply rounded-[10px] border border-line bg-surface;
+  }
+
+  .btn-primary {
+    @apply inline-flex cursor-pointer items-center justify-center gap-2 rounded-lg bg-accent px-4 py-2.5 text-sm font-semibold text-accent-ink transition-colors hover:bg-accent-hover disabled:cursor-not-allowed disabled:opacity-50;
+  }
+
+  .btn-ghost {
+    @apply inline-flex cursor-pointer items-center justify-center gap-2 rounded-lg border border-line-strong px-4 py-2.5 text-sm font-medium text-ink transition-colors hover:bg-raised disabled:cursor-not-allowed disabled:opacity-50;
+  }
+
+  .btn-danger {
+    @apply inline-flex cursor-pointer items-center justify-center gap-2 rounded-lg bg-danger px-4 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-danger/85 disabled:cursor-not-allowed disabled:opacity-50;
+  }
+
+  .field {
+    @apply w-full rounded-lg border border-line-strong bg-field px-3 py-2.5 text-sm text-ink placeholder:text-dim transition-colors focus:border-accent focus:outline-none;
+  }
+  select.field {
+    @apply cursor-pointer appearance-none pr-9;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' fill='none' stroke='%238696a8' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 8l4 4 4-4'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 0.75rem center;
+    background-size: 1rem;
+  }
+
+  .label {
+    @apply text-xs font-medium text-muted;
+  }
+
+  .chip {
+    @apply inline-flex cursor-pointer items-center rounded-md border border-line-strong px-2.5 py-1 text-xs text-muted transition-colors hover:text-ink;
+  }
+
+  .chip-on {
+    @apply border-accent bg-accent/10 text-ink;
+  }
+
+  .menu-item {
+    @apply flex cursor-pointer items-center gap-2.5 px-3.5 py-2 text-sm text-ink transition-colors hover:bg-raised;
+  }
+
+}
+
+.banner-empty {
+  background-color: #162131;
+  background-image: radial-gradient(#23324a 1px, transparent 1px);
+  background-size: 14px 14px;
+}
+
+:focus-visible {
+  @apply outline-2 outline-offset-2 outline-accent;
+}
+
+.hero-band {
+  background-color: #0b121b;
+  background-image: radial-gradient(#1c2735 1px, transparent 1px);
+  background-size: 18px 18px;
+}
+
+.no-scrollbar {
+  overflow-y: hidden;
+  scrollbar-width: none;
+}
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
